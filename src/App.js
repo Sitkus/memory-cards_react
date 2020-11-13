@@ -1,9 +1,12 @@
 import React from 'react';
+import {Cards, Navigation, AddButton, ClearButton} from './components/';
 import './App.scss';
 
 const App = () => {
   return (
-    <div className="App"></div>
+    <div>
+      <Cards />
+    </div>
   );
 }
 
