@@ -13,6 +13,7 @@ const Article = styled.article`
 `;
 
 const P = styled.p`
+	padding: 5rem;
 	text-align: center;
 `;
 

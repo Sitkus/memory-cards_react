@@ -32,10 +32,15 @@ const Section = styled.section`
   align-items: center;
 `;
 
+const EmptyFiller = styled.div`
+  width: 100%;
+	height: 35rem;
+`;
+
 const Footer = styled.footer`
   position: absolute;
   bottom: 5rem;
   left: 5rem;
 `;
 
-export {Main, Container, Header, HeaderTitle, Section, Footer};
+export {Main, Container, Header, HeaderTitle, Section, EmptyFiller, Footer};

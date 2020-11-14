@@ -1,40 +1,31 @@
-import React, {useState} from 'react';
+import React from 'react';
 import * as S from './Cards.style';
 
-const Cards = () => {
-    const [cards, setCards] = useState([
-			{
-				question: 'What is your name?',
-				answer: 'Peter',
-				flip: false
-			},
-			// {
-			// 	question: 'How do you do?',
-			// 	answer: 'Great!',
-			// 	flip: true
-			// },
-			// {
-			// 	question: 'What is React?',
-			// 	answer: 'A framework or library? That\'s the question...',
-			// 	flip: false
-			// }
-    ]);
+const Cards = ({cards, setCards}) => {
+	const flipCard = (index) => {
+		cards[index].flip = !cards[index].flip;
 
-    return (
-        <>
-					{
-						cards.map((card, index) => (
-							<S.Article key={index}>
-								{
-									!card.flip ?
-									<S.P>{card.question}</S.P> :
-									<S.P>{card.answer}</S.P>
-								}
-							</S.Article>
-						))
-					}
-        </>
-    );
+		setCards([...cards]);
+	}
+
+	return (
+		<>
+			{
+				cards.map((card, index) => (
+					<S.Article 
+						key={index}
+						onClick={() => flipCard(index)}
+					>
+						{
+							!card.flip ?
+							<S.P>{card.question}</S.P> :
+							<S.P>{card.answer}</S.P>
+						}
+					</S.Article>
+				))
+			}
+		</>
+	);
 }
 
 export default Cards;
