@@ -13,7 +13,7 @@ const rightArrow = {
 
 const Navigation = ({cards, currentCard, setCurrentCard}) => {
 	const previousCard = () => {
-		if (currentCard > 0) {
+		if (currentCard > 1) {
 			currentCard--;
 
 			setCurrentCard(currentCard);

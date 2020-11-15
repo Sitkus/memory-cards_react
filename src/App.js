@@ -4,23 +4,23 @@ import * as S from './App.style';
 import './App.scss';
 
 const App = () => {
-  const [currentCard, setCurrentCard] = useState(0);
+  const [currentCard, setCurrentCard] = useState(1);
   const [cards, setCards] = useState([
     {
       question: 'What is your name?',
       answer: 'Peter',
       flip: false
     },
-    // {
-    // 	question: 'How do you do?',
-    // 	answer: 'Great!',
-    // 	flip: true
-    // },
-    // {
-    // 	question: 'What is React?',
-    // 	answer: 'A framework or library? That\'s the question...',
-    // 	flip: false
-    // }
+    {
+    	question: 'How do you do?',
+    	answer: 'Great!',
+    	flip: false
+    },
+    {
+    	question: 'What is React?',
+    	answer: 'A framework or library? That\'s the question...',
+    	flip: false
+    }
   ]);
 
   return (
@@ -35,6 +35,7 @@ const App = () => {
             cards.length === 0 ?
             <S.EmptyFiller></S.EmptyFiller> :
             <Cards
+              currentCard={currentCard}
               cards={cards}
               setCards={setCards}
             />
@@ -46,7 +47,10 @@ const App = () => {
           />
         </S.Section>
         <S.Footer>
-          <ClearButton setCards={setCards} />
+          <ClearButton
+            setCurrentCard={setCurrentCard}
+            setCards={setCards}
+          />
         </S.Footer>
       </S.Container>
     </S.Main>

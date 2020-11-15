@@ -1,9 +1,10 @@
 import React from 'react';
 import * as S from './Buttons.style';
 
-const ClearButton = ({setCards}) => {
+const ClearButton = ({setCurrentCard, setCards}) => {
 	const clearCards = () => {
 		setCards([]);
+		setCurrentCard(0);
 	}
 
 	return (

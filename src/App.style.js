@@ -27,6 +27,7 @@ const HeaderTitle = styled.h1`
 `;
 
 const Section = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
