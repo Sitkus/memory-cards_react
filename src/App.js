@@ -5,7 +5,7 @@ import './App.scss';
 
 const App = () => {
   const [currentCard, setCurrentCard] = useState(1);
-  const [addSection, setAddSection] = useState(true);
+  const [addSection, setAddSection] = useState(false);
   const [cards, setCards] = useState([
     {
       question: 'What is your name?',
