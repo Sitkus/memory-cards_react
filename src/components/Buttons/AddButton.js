@@ -1,13 +1,9 @@
 import React from 'react';
 import * as S from './Buttons.style';
 
-const AddButton = () => {
-	const openModal = () => {
-		
-	}
-
+const AddButton = ({setAddSection}) => {
 	return (
-		<S.AddButton onClick={openModal}>
+		<S.AddButton onClick={() => setAddSection(true)}>
 			<i className="fas fa-plus"></i> Add New Card
 		</S.AddButton>
 	);

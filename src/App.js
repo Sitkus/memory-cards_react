@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {Cards, Navigation, AddButton, ClearButton} from './components/';
+import {Cards, Navigation, AddCard, AddButton, ClearButton} from './components/';
 import * as S from './App.style';
 import './App.scss';
 
 const App = () => {
   const [currentCard, setCurrentCard] = useState(1);
+  const [addSection, setAddSection] = useState(true);
   const [cards, setCards] = useState([
     {
       question: 'What is your name?',
@@ -25,34 +26,43 @@ const App = () => {
 
   return (
     <S.Main>
-      <S.Container>
-        <S.Header>
-          <S.HeaderTitle>Memory Cards</S.HeaderTitle>
-          <AddButton />
-        </S.Header>
-        <S.Section>
-          {
-            cards.length === 0 ?
-            <S.EmptyFiller></S.EmptyFiller> :
-            <Cards
-              currentCard={currentCard}
-              cards={cards}
-              setCards={setCards}
-            />
-          }
-          <Navigation
+      {
+        !addSection ?
+          <S.Container>
+            <S.Header>
+              <S.HeaderTitle>Memory Cards</S.HeaderTitle>
+              <AddButton setAddSection={setAddSection} />
+            </S.Header>
+            <S.Section>
+              {
+                cards.length === 0 ?
+                  <S.EmptyFiller></S.EmptyFiller> :
+                  <Cards
+                    currentCard={currentCard}
+                    cards={cards}
+                    setCards={setCards}
+                  />
+              }
+              <Navigation
+                cards={cards}
+                currentCard={currentCard}
+                setCurrentCard={setCurrentCard}
+              />
+            </S.Section>
+            <S.Footer>
+              <ClearButton
+                setCurrentCard={setCurrentCard}
+                setCards={setCards}
+              />
+            </S.Footer>
+          </S.Container> :
+          <AddCard 
+            setCurrentCard={setCurrentCard}
+            setAddSection={setAddSection}
             cards={cards}
-            currentCard={currentCard}
-            setCurrentCard={setCurrentCard}
-          />
-        </S.Section>
-        <S.Footer>
-          <ClearButton
-            setCurrentCard={setCurrentCard}
             setCards={setCards}
           />
-        </S.Footer>
-      </S.Container>
+      }
     </S.Main>
   );
 }
