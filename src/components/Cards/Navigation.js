@@ -11,11 +11,12 @@ const rightArrow = {
 	cursor: 'pointer'
 };
 
-const Navigation = ({cards, currentCard, setCurrentCard}) => {
+const Navigation = ({cards, currentCard, setCurrentCard, cardChanges, setCardChanges}) => {
 	const previousCard = () => {
 		if (currentCard > 1) {
 			currentCard--;
 
+			setCardChanges(!cardChanges);
 			setCurrentCard(currentCard);
 		}
 	}
@@ -24,6 +25,7 @@ const Navigation = ({cards, currentCard, setCurrentCard}) => {
 		if (currentCard < cards.length) {
 			currentCard++;
 
+			setCardChanges(!cardChanges);
 			setCurrentCard(currentCard);
 		}
 	}

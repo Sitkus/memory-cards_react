@@ -37,6 +37,78 @@ img {
   height: auto;
 }
 
+
+
+
+
+/*------------------------------------*\
+  #Rewriting icon styling
+\*------------------------------------*/
+
 .fas {
   margin-right: 0.5rem;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Flip animation
+\*------------------------------------*/
+
+.flip-enter {
+  transform: rotateX(0deg);
+}
+
+.flip-enter-active {
+  transform: rotateX(180deg);
+  transition: transform 200ms ease-in;
+}
+
+.flip-enter-done {
+  transform: rotateX(360deg);
+}
+
+.flip-exit {
+  transform: rotateX(360deg);
+}
+
+.flip-exit-active {
+  transform: rotateX(180deg);
+  transition: transform 200ms ease-in;
+}
+
+.flip-exit-done {
+  transform: rotateX(0deg);
+}
+
+
+
+
+
+/*------------------------------------*\
+  #Next card animation
+\*------------------------------------*/
+
+.next-enter {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.next-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 400ms ease-in;
+}
+
+.next-exit {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.next-exit-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 400ms ease-in;
 }

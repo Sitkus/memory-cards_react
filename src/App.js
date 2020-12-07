@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
-import {useSpring, animated} from 'react-spring';
-import {Cards, Navigation, AddCard, AddButton, ClearButton} from './components/';
+import React, { useState } from 'react';
+import { useSpring, animated } from 'react-spring';
+import { Cards, Navigation, AddCard, AddButton, ClearButton } from './components/';
 import * as S from './App.style';
 import './App.scss';
 
 const App = () => {
-  const [currentCard, setCurrentCard] = useState(1);
-  const [addSection, setAddSection] = useState(false);
-  const [cards, setCards] = useState([
+  const [ currentCard, setCurrentCard ] = useState(1);
+  const [ cardChanges, setCardChanges ] = useState(false);
+  const [ addSection, setAddSection ] = useState(false);
+  const [ cards, setCards ] = useState([
     {
       question: 'What is your name?',
       answer: 'Peter',
@@ -32,15 +33,16 @@ const App = () => {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(16, 16, 16, 0.5)',
+    backgroundColor: 'rgba(16, 16, 16, 0.2)',
     position: 'absolute',
     top: '50%',
     left: '50%',
     width: '100%',
     height: '100%',
     opacity: addSection ? 1 : 0,
-    transform: addSection ? 'translate(-50%, -50%) scale(1)' : 'translate(-50%, -50%) scale(0)',
-    zIndex: 10
+    transform: 'translate(-50%, -50%)',
+    zIndex: 10,
+    visibility: addSection ? 'visible' : 'hidden'
   });
 
   return (
@@ -59,12 +61,15 @@ const App = () => {
                   currentCard={currentCard}
                   cards={cards}
                   setCards={setCards}
+                  cardChanges={cardChanges}
                 />
             }
             <Navigation
               cards={cards}
               currentCard={currentCard}
               setCurrentCard={setCurrentCard}
+              cardChanges={cardChanges}
+              setCardChanges={setCardChanges}
             />
           </S.Section>
           <S.Footer>

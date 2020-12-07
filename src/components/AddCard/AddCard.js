@@ -34,7 +34,7 @@ const AddCard = ({setCurrentCard, setAddSection, cards, setCards}) => {
 
   return (
     <S.Form>
-      <S.ExitBtn name="exit" onClick={closeModal}><i class="fa fa-times"></i></S.ExitBtn>
+      <S.ExitBtn name="exit" onClick={closeModal}><i className="fa fa-times"></i></S.ExitBtn>
       <S.Label htmlFor="question">Question:</S.Label>
       <S.Textarea 
         onChange={e => setQuestion(e.target.value)}
